@@ -1,7 +1,7 @@
 {
-  "name": "liventin/base.module.migration.userfields.provider.",
+  "name": "liventin/base.module.migration.userfields.provider.enumeration",
   "type": "bitrix-d7-module",
-  "description": "Datetime Provider for service migration bitrix userfield",
+  "description": "Enumeration Provider for service migration bitrix userfield",
   "require-dev": {
     "roave/security-advisories": "dev-latest"
   },
