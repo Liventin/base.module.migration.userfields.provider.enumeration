@@ -22,7 +22,7 @@ class EnumerationProvider extends UserFieldProvider
         return $enumValue;
     }
 
-    protected function afterAdd(int $fieldId, array $field, string $moduleId): void
+    public function afterAdd(int $fieldId, array $field, string $moduleId): void
     {
         if (empty($this->enumValues)) {
             return;
