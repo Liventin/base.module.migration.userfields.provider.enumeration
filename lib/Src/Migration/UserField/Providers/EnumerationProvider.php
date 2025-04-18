@@ -30,21 +30,10 @@ class EnumerationProvider extends UserFieldProvider
 
         $enum = new CUserFieldEnum();
         $enumData = [];
+        $count = 0;
         foreach ($this->enumValues as $enumValue) {
-            $enumData[] = $enumValue->getElementToArray();
+            $enumData['n'.$count++] = $enumValue->getElementToArray();
         }
         $enum->SetEnumValues($fieldId, $enumData);
-    }
-
-    public function getParamsToArray(): array
-    {
-        $enumValues = [];
-        foreach ($this->enumValues as $enumValue) {
-            $enumValues[] = $enumValue->getElementToArray();
-        }
-
-        return array_merge(parent::getParamsToArray(), [
-            'ENUM_VALUES' => $enumValues,
-        ]);
     }
 }
