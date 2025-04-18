@@ -1,0 +1,23 @@
+{
+  "name": "liventin/base.module.migration.userfields.provider.",
+  "type": "bitrix-d7-module",
+  "description": "Datetime Provider for service migration bitrix userfield",
+  "require-dev": {
+    "roave/security-advisories": "dev-latest"
+  },
+  "require": {
+    "php": ">=8.1",
+    "liventin/base.module": "dev-main",
+    "liventin/base.module.migration.userfields": "dev-main"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@github.com:liventin/base.module"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:liventin/base.module.migration.userfields"
+    }
+  ]
+}
