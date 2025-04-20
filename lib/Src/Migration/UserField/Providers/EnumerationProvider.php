@@ -10,7 +10,7 @@ class EnumerationProvider extends UserFieldProvider
 {
     private array $enumValues = [];
 
-    public function getType(): string
+    public static function getType(): string
     {
         return 'enumeration';
     }
