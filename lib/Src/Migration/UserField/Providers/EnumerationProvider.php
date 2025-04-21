@@ -66,6 +66,13 @@ class EnumerationProvider extends UserFieldProvider
         return $this;
     }
 
+    public function getParamsToArray(): array
+    {
+        return array_merge(parent::getParamsToArray(), [
+            'ENUM_VALUES_LIST' => $this->enumValues,
+        ]);
+    }
+
     /**
      * @param int $fieldId
      * @param array $field
@@ -74,28 +81,17 @@ class EnumerationProvider extends UserFieldProvider
      */
     public function afterAdd(int $fieldId, array $field, string $moduleId): void
     {
-        if (empty($this->enumValues)) {
+        if (empty($field['params']['ENUM_VALUES_LIST'])) {
             return;
         }
 
         $enum = new CUserFieldEnum();
         $enumData = [];
         $count = 0;
-        foreach ($this->enumValues as $enumValue) {
+        foreach ($field['params']['ENUM_VALUES_LIST'] as $enumValue) {
             $enumData['n' . $count++] = $enumValue->getElementToArray();
         }
-        $enum->SetEnumValues($fieldId, $enumData);
-    }
 
-    /**
-     * Возвращает параметры провайдера в виде массива.
-     *
-     * @return array
-     */
-    public function getParamsToArray(): array
-    {
-        return array_merge(parent::getParamsToArray(), [
-            'SETTINGS' => $this->settings,
-        ]);
+        $enum->SetEnumValues($fieldId, $enumData);
     }
 }
