@@ -3,7 +3,6 @@
 namespace Base\Module\Src\Migration\UserField\Providers;
 
 use Base\Module\Src\Migration\UserField\EnumValue;
-use Base\Module\Src\Migration\UserField\Interface\UserFieldProvider;
 use CUserFieldEnum;
 
 class EnumerationProvider extends UserFieldProvider
